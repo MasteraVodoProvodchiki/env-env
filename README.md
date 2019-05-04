@@ -1,5 +1,6 @@
 # env-env
 Convert environment variables to object  
+[![CircleCI](https://circleci.com/gh/MasteraVodoProvodchiki/env-env.svg?style=svg)](https://circleci.com/gh/MasteraVodoProvodchiki/env-env)
 
 # Examples
 ```javascript
