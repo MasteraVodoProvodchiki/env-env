@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"outDir": "dist",
+		"rootDir": "src",
+		"module": "commonjs",
+		"removeComments": true,
+		"lib": ["es2017", "esnext.asynciterable"],
+		"target": "es2017",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"declaration": true
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"**/__tests__/*"
+	]
+}

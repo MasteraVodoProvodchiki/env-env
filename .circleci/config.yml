@@ -1,0 +1,100 @@
+version: 2
+
+# refs
+cacheKey: &cacheKey yarn-packages-{{ checksum "yarn.lock" }}
+
+jobDefaults: &jobDefaults
+  working_directory: ~/app
+  docker:
+    - image: circleci/node:10
+
+saveCache: &saveCache
+  save_cache:
+    key: *cacheKey
+    paths:
+      - ~/.cache/yarn
+
+restoreCache: &restoreCache
+  restore_cache:
+    key: *cacheKey
+
+yarnInstall: &yarnInstall
+  run: |
+    echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_TOKEN" > .npmrc
+    yarn install --frozen-lockfile --non-interactive
+
+persistInstall: &persistInstall
+  persist_to_workspace:
+    root: .
+    paths:
+      - ./*
+
+attachInstall: &attachInstall
+  attach_workspace:
+    at: .
+
+# jobs
+jobs:
+  install:
+    <<: *jobDefaults
+    steps:
+      - checkout
+      - *restoreCache
+      - *yarnInstall
+      - *persistInstall
+      - *saveCache
+  test:
+    <<: *jobDefaults
+    steps:
+      - *attachInstall
+      - run: yarn test
+  build:
+    <<: *jobDefaults
+    steps:
+      - *attachInstall
+      - run: yarn build
+  bump:
+    <<: *jobDefaults
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "0d:1c:e9:7e:a0:0e:af:ce:aa:5e:59:1d:ee:3a:13:0a"
+      - checkout
+      - run: |
+          git config user.email "ci@masteravodoprovodchiki.club"
+          git config user.name ci
+          yarn bump
+          git push
+          git push --tags
+  publish:
+    <<: *jobDefaults
+    steps:
+      - checkout
+      - run: git pull
+      - *yarnInstall
+      - run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_TOKEN" > .npmrc
+          yarn run publish:ci
+workflows:
+  version: 2
+  test_and_build:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
+      - build:
+          requires:
+            - install
+            - test
+      - approve_publish:
+          type: approval
+          requires:
+            - build
+      - bump:
+          requires:
+            - approve_publish
+      - publish:
+          requires:
+            - install
+            - bump

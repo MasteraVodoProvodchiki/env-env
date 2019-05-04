@@ -1,0 +1,43 @@
+{
+	"name": "@masteravodoprovodchiki/env-env",
+	"version": "0.0.0",
+	"description": "Convert environment variables to structure",
+	"main": "./dist/index.js",
+	"repository": "https://github.com/MasteraVodoProvodchiki/env-env.git",
+	"author": "evilfant <evilfant@gmail.com>",
+	"license": "MIT",
+	"private": false,
+	"files": [
+		"/dist"
+	],
+	"scripts": {
+		"build": "yarn build:clean && yarn build:lib",
+		"build:lib": "cross-env NODE_ENV=production tsc",
+		"build:clean": "rimraf ./dist",
+		"test": "yarn test:only",
+		"test:only": "jest --coverage",
+		"test:watch": "jest --watch",
+		"lint": "yarn lint:tslint && yarn lint:eslint",
+		"lint:tslint": "tslint --project ./",
+		"lint:eslint": "eslint ./",
+		"bump": "yarn version --patch --non-interactive --message \"v%s [skip ci]\"",
+		"publish:ci": "yarn build && yarn publish --access public"
+	},
+	"devDependencies": {
+		"@types/jest": "^24.0.11",
+		"cross-env": "^5.2.0",
+		"eslint": "^5.16.0",
+		"eslint-config-node": "^4.0.0",
+		"jest": "^24.7.1",
+		"ts-jest": "^24.0.2",
+		"tslint": "^5.16.0",
+		"tslint-config-airbnb": "^5.11.1",
+		"typescript": "^3.4.3"
+	},
+	"dependencies": {
+		"@masteravodoprovodchiki/casttovania": "^0.0.2",
+		"@types/lodash.set": "^4.3.6",
+		"camelcase": "^5.3.1",
+		"lodash.set": "^4.3.2"
+	}
+}
