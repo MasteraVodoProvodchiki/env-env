@@ -58,7 +58,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "0d:1c:e9:7e:a0:0e:af:ce:aa:5e:59:1d:ee:3a:13:0a"
+            - "ef:ea:1b:41:36:52:f1:ec:f6:8a:ce:99:a7:7e:6f:85"
       - checkout
       - run: |
           git config user.email "ci@masteravodoprovodchiki.club"
