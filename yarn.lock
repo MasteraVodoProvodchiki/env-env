@@ -302,10 +302,13 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/yargs" "^12.0.9"
 
-"@masteravodoprovodchiki/casttovania@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@masteravodoprovodchiki/casttovania/-/casttovania-0.0.2.tgz#224d9a0d3b58b12777613fe59dd43c46f14ff7f4"
-  integrity sha512-7ARYww2Wq1A/SskJ38MXdWolhynbDEtIDSqCtxNyjaoE+9VKlPbm95WKDqc82kRABN/Bp9Gj0KJ6oMToIGw2ZQ==
+"@masteravodoprovodchiki/casttovania@0.0.3":
+  version "0.0.3"
+  resolved "https://repo.ptsecurity.ru/artifactory/api/npm/npmjs/@masteravodoprovodchiki/casttovania/-/casttovania-0.0.3.tgz#0ddf463b4b94a24bde5b138198735a923c257a09"
+  integrity sha1-Dd9GO0uUokveWxOBmHNakjwlegk=
+  dependencies:
+    "@types/is-number" "^3.0.1"
+    is-number "^7.0.0"
 
 "@types/babel__core@^7.1.0":
   version "7.1.1"
@@ -339,6 +342,11 @@
   integrity sha512-XYVgHF2sQ0YblLRMLNPB3CkFMewzFmlDsH/TneZFHUXDlABQgh88uOxuez7ZcXxayLFrqLwtDH1t+FmlFwNZxw==
   dependencies:
     "@babel/types" "^7.3.0"
+
+"@types/is-number@^3.0.1":
+  version "3.0.1"
+  resolved "https://repo.ptsecurity.ru/artifactory/api/npm/npmjs/@types/is-number/-/is-number-3.0.1.tgz#94d2c21efb00a8650e7f1af1da735a829a861295"
+  integrity sha1-lNLCHvsAqGUOfxrx2nNagpqGEpU=
 
 "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.0"
@@ -1921,6 +1929,11 @@ is-number@^3.0.0:
   integrity sha1-JP1iAaR4LPUFYcgQJ2r8fRLXEZU=
   dependencies:
     kind-of "^3.0.2"
+
+is-number@^7.0.0:
+  version "7.0.0"
+  resolved "https://repo.ptsecurity.ru/artifactory/api/npm/npmjs/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
+  integrity sha1-dTU0W4lnNNX4DE0GxQlVUnoU8Ss=
 
 is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   version "2.0.4"
