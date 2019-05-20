@@ -1,6 +1,6 @@
 {
 	"name": "@masteravodoprovodchiki/env-env",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Convert environment variables to structure",
 	"main": "./dist/index.js",
 	"repository": "https://github.com/MasteraVodoProvodchiki/env-env.git",
