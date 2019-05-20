@@ -43,6 +43,11 @@ jobs:
       - *yarnInstall
       - *persistInstall
       - *saveCache
+  lint:
+    <<: *jobDefaults
+    steps:
+      - *attachInstall
+      - run: yarn lint
   test:
     <<: *jobDefaults
     steps:
@@ -80,6 +85,9 @@ workflows:
   test_and_build:
     jobs:
       - install
+      - lint:
+          requires:
+            - install
       - test:
           requires:
             - install
