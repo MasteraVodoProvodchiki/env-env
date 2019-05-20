@@ -7,6 +7,10 @@
 	"author": "evilfant <evilfant@gmail.com>",
 	"license": "MIT",
 	"private": false,
+	"keywords": [
+		"env",
+		"environment"
+	],
 	"files": [
 		"/dist"
 	],
